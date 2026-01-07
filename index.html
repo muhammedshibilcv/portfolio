@@ -1,142 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  </head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shibil's Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<script>
+  tailwind.config = { darkMode: 'class' }
+</script>
+
+<style>
+html { scroll-behavior: smooth; }
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #3b82f6;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0.85rem;
+  top: 0.45rem;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 3px solid #3b82f6;
+  border-radius: 50%;
+}
+</style>
 </head>
-<body>
-    <!-- Header -->
 
-    <header class="header bg-white shadow-md">
-        <nav class="container mx-auto">
-            <ul class="nav-bar flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-12 p-4">
-                <li><a href="#" class="text-gray-700 hover:text-gray-100">Home</a></li>
-                <li><a href="#about" class="text-gray-700 hover:text-gray-900">About</a></li>
-                <li><a href="#education" class="text-gray-700 hover:text-gray-900">Education</a></li>
-                <li><a href="#skills" class="text-gray-700 hover:text-gray-900">Skill</a></li>
-                <li><a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
 
-    
-     <!-- section 1 -->
-     <section class="section-1 bg-gray-800 text-black flex justify-center items-center h-screen">
-        <div class="text-center p-6">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Muhammed Shibil</h1>
-            <p class="text-lg md:text-xl">Passionate Full Stack Developer with expertise in Python, Django, and Angular, aiming to deliver efficient and innovative web solutions.<br> 
-                Currently honing my skills at Technodot Academy, where I work on real-world projects and gain hands-on experience in modern web development.</p>
-        </div>
-    </section>
-    
-      <!-- section-1 finish -->
+<nav class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">My Portfolio</h1>
+    <div class="flex items-center gap-6">
+        <a href="#home" class="hover:text-blue-500 transition font-medium">Home</a>
+        <a href="#about" class="hover:text-blue-500 transition font-medium">About</a>
+        <a href="#projects" class="hover:text-blue-500 transition font-medium">Projects</a>
+        <a href="#skills" class="hover:text-blue-500 transition font-medium">Skills</a>
+        <a href="#Certifications" class="hover:text-blue-500 transition font-medium">Certifications</a>
+        <a href="#journey" class="hover:text-blue-500 transition font-medium">Timeline</a>
+        <a href="#contact" class="hover:text-blue-500 transition font-medium">Contact</a>
+        <button
+  id="themeToggle"
+  onclick="toggleTheme()"
+  class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded text-lg">
+  🌙
+</button>
 
-      <!-- section 2 about -->
-
-       <section id="about" class="section-2 bg-gray-200 py-10 md:py-20">
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 p-4">
-                <img  src="image/photo1.JPG" class="rounded-lg w-[40%] m-auto">
-            </div>
-            <div class="md:w-1/2 p-4">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">ABOUT ME</h1>
-                <p class="text-gray-700 ">Hi, I'm Muhammed Shibil, a passionate individual who completed Plus Two in the Humanities stream and later transitioned into the tech field to follow my interest in IT and software development.
-                    I started with a Data Entry Operations course, gaining hands-on experience in Microsoft Word, Excel, and PowerPoint. I then joined Bridgeon Solutions, where I built a solid foundation in web development using HTML and CSS, and worked on cloning real websites.
-                    Currently, I'm pursuing a Full Stack Development course at Technodot Academy, focusing on Python, Django, and Angular. I'm dedicated to improving my skills and building user-friendly applications.</p>
-            </div>
-        </div>
-    </section>
-    
-       <!-- section 2 finish -->
-
-       <!-- section 3 education -->
-        <section id="education" class="section-3 py-10 md:py-20">
-    <h1 class="text-3xl md:text-4xl font-bold flex justify-center mb-10">EDUCATION</h1>
-    <div class="container w-full  mx-auto flex flex-col md:flex-row justify-around">
-        <div class="edu-box bg-white shadow-md rounded-lg p-6 mb-4 md:mb-0">
-            <h1 class="text-lg font-bold mb-2">Plustwo</h1>
-            <p>I completed my Plus Two in the Humanities stream, with subjects including History, Economics, Sociology, Political Science, and Data Entry. Studying Data Entry gave me hands-on experience with digital tools like Microsoft Word and Excel.
-                This academic background helped me build strong communication skills and digital awareness, which now support my journey in the tech field.</p>
-        </div>
-        <div class="edu-box bg-white shadow-md rounded-lg p-6">
-            <h1 class="text-lg font-bold mb-2">Technodot Academy</h1>
-            <p>I'm currently pursuing Full Stack Development at Technodot Academy, a leading institute focused on practical, mentor-led IT training.
-                At Technodot, I'm learning technologies like Python, Django, and Angular, while also gaining real-world development experience through hands-on projects and personalized guidance. The structured learning environment and expert support have been key in shaping my journey as a full stack developer.</p>
-        </div>
     </div>
+  </div>
+</nav>
+
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white pt-20">
+  <div class="text-center section">
+    <h2 class="text-4xl md:text-6xl font-bold mb-4">Muhammed Shibil</h2>
+    <p class="text-lg md:text-xl mb-8">
+      Software Developer | Python Full Stack Development
+    </p>
+    <a href="#projects"
+       class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+       Explore My Work
+    </a>
+  </div>
 </section>
 
-        <!-- section 3 finish -->
+<section id="about" class="py-20 section">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <img src="docs/myphoto.jpg"
+         class="w-36 h-36 mx-auto rounded-full mb-6 object-cover border-4 border-blue-500"
+         alt="Muhammed Shibil">
 
-        <!-- section 4 skill -->
-        <section id="skills" class="section-4 py-10 md:py-20 bg-gray-100">
-            <div class="container mx-auto">
-                <h1 class="text-3xl md:text-4xl font-bold flex justify-center mb-10">MY Skills</h1>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-                    <div class="skill-box bg-white shadow-md rounded-lg p-6 flex flex-col items-center">
-                        <img class="skill-logo w-16 md:w-24 mb-4" src="image/1175208.webp" alt="">
-                        <h1 class="text-lg font-bold">HTML</h1>
-                    </div>
-                    <div class="skill-box bg-white shadow-md rounded-lg p-6 flex flex-col items-center">
-                        <img class="skill-logo w-16 md:w-24 mb-4" src="image/css-3.svg" alt="">
-                        <h1 class="text-lg font-bold">CSS</h1>
-                    </div>
-                    <div class="skill-box bg-white shadow-md rounded-lg p-6 flex flex-col items-center">
-                        <img class="skill-logo w-16 md:w-24 mb-4" src="image/javascript.webp" alt="">
-                        <h1 class="text-lg font-bold">JavaScript</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-         <!-- section 4 skills finish -->
+    <h2 class="text-3xl font-bold mb-4">About Me</h2>
+    <p class="text-lg leading-relaxed">
+      Hi, I’m <strong>Muhammed Shibil</strong>, a Full Stack Developer specializing in
+      <strong>Python, Django and Angular</strong> with strong foundations in
+      HTML, CSS, JavaScript and TypeScript.
+      I focus on building dynamic, user-friendly, and database-driven web applications
+      by combining clean backend logic, RESTful APIs, and responsive frontend design.
+      I’m passionate about solving real-world problems through code and continuously
+      improving my skills through hands-on projects and mentorship.
+    </p>
+  </div>
+</section>
 
+<section class="py-20 bg-white dark:bg-gray-800 section">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-4">Vision & Mission</h2>
+    <p class="text-lg leading-relaxed">
+      To grow into a reliable and impactful software developer by building scalable and
+      maintainable applications, continuously learning modern technologies, and
+      contributing to real-world solutions that create value-driven by skills,
+      consistency, and practical experience rather than just formal degrees.
+    </p>
+  </div>
+</section>
 
-       <!-- section 6 contact -->
+<section class="py-20 section">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-4">My Story</h2>
+    <p class="text-lg leading-relaxed">
+      My journey into software development started with a clear belief that practical
+      skills matter more than theory alone. Instead of following a traditional path,
+      I choose structured training and mentorship in Python Django Angular Full Stack
+      Development.
+      <br><br>
+      Through real projects involving frontend development, backend logic, REST API
+      integration, and database handling using SQL and PostgreSQL, I gained confidence
+      in understanding how complete web systems are built, improved, and maintained
+      in real-world environments.
+    </p>
+  </div>
+</section>
 
-        <section id="contact" class="section-6 py-10 md:py-20 bg-gray-200">
-            <div class="container mx-auto">
-                <h1 class="text-3xl md:text-4xl font-bold flex justify-center mb-10">Contact Me</h1>
-                <div class="flex justify-center">
-                    <form action="https://api.web3forms.com/submit" method="POST" class="section6-form w-full md:w-1/2 flex flex-col items-center bg-white shadow-md rounded-lg p-6">
-                        <input type="hidden" name="access_key" value="36758cdb-3dd2-4f3e-a623-3dfcbff1de16">
-                        <input class="form-input w-full mb-4 p-2 border rounded" type="text" name="name" placeholder="Your Name" required>
-                        <input class="form-input w-full mb-4 p-2 border rounded" type="email" name="email" placeholder="Your Email" required>
-                        <textarea class="form-input w-full mb-4 p-2 border rounded" rows="6" name="Message" placeholder="Your Message"></textarea>
-                        <button type="submit" class="form-btn w-1/3 bg-blue-500 text-white p-2 rounded">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
-        <!-- section 6 finish -->
+<section class="py-20 bg-white dark:bg-gray-800 section">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">My Goals</h2>
 
+    <ul class="list-disc list-inside text-lg space-y-2 inline-block text-left">
+      <li>Secure an internship or entry-level Full Stack / Backend Developer role</li>
+      <li>Strengthen expertise in Python, Django, REST APIs, and Databases</li>
+      <li>Build production-ready applications that solve real-world problems</li>
+      <li>Grow into a skilled full-stack engineer through continuous learning</li>
+    </ul>
+  </div>
+</section>
 
-        <!-- footer -->
-         <!-- Footer Section -->
-         <footer class="footer bg-gray-800 text-white py-8">
-            <div class="container mx-auto flex flex-col items-center">
+<section id="skills" class="py-20 section">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-10">Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fab fa-python text-4xl text-blue-500 mb-3"></i>
+        <p class="font-semibold">Python</p>
+      </div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fas fa-leaf text-4xl text-green-600 mb-3"></i>
+        <p class="font-semibold">Django</p>
+      </div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fab fa-angular text-4xl text-red-600 mb-3"></i>
+        <p class="font-semibold">Angular</p>
+      </div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fas fa-database text-4xl text-indigo-500 mb-3"></i>
+        <p class="font-semibold">SQL</p>
+      </div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
+        <p class="font-semibold">HTML</p>
+      </div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fab fa-css3-alt text-4xl text-blue-600 mb-3"></i>
+        <p class="font-semibold">CSS</p>
+      </div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fab fa-js-square text-4xl text-yellow-400 mb-3"></i>
+        <p class="font-semibold">JavaScript</p>
+      </div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow flex flex-col items-center">
+  <img
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+    alt="TypeScript"
+    class="w-12 h-12 mb-3"
+    />
+  <p class="font-semibold">TypeScript</p>
+</div>
 
-        <!-- Social Media Links -->
-        <div class="flex space-x-6 mb-6">
-            <a href="https://www.linkedin.com/in/muhammed-shibil-c-v-18b42b266/" target="_blank" class="hover:text-gray-400">
-                <img src="image/linkedin-icon-png.webp" alt="LinkedIn" class="w-8 h-8">
-            </a>
-            <a href="https://github.com/muhammedshibilcv" target="_blank" class="hover:text-gray-400">
-                <img src="image/github.png" alt="GitHub" class="w-8 h-8">
-            </a>
-        </div>
+<div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+  <i class="fas fa-file-excel text-4xl text-green-600 mb-3"></i>
+  <p class="font-semibold">Microsoft Excel</p>
+</div>
 
-        <!-- Footer Copyright -->
-        <div class="text-center text-sm text-gray-400">
-            <p>&copy; 2025 Muhammed Shibil. All Rights Reserved.</p>
-        </div>
+<div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+  <i class="fas fa-file-word text-4xl text-blue-600 mb-3"></i>
+  <p class="font-semibold">Microsoft Word</p>
+</div>
+
+<div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+  <i class="fas fa-file-powerpoint text-4xl text-orange-600 mb-3"></i>
+  <p class="font-semibold">Microsoft PowerPoint</p>
+</div>
+      <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow">
+        <i class="fab fa-git-alt text-4xl text-orange-600 mb-3"></i>
+        <p class="font-semibold">Git & GitHub</p>
+      </div>
     </div>
+  </div>
+</section>
+
+<section id="projects" class="py-20 bg-white dark:bg-gray-800 section">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+        <h3 class="text-xl font-semibold mb-2">Course Platform</h3>
+        <p class="mb-2">
+          <strong>Tools:</strong> <span>Python, Django, HTML, CSS, JavaScript, PostgreSQL</span>
+        </p>
+        <p class="text-sm leading-relaxed">
+          Built a tech-based course platform where users can sign up using email or Google authentication
+          (OAuth), enroll in courses, and customize their user profiles.
+        </p>
+      </div>
+
+      <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+  <h3 class="text-xl font-semibold mb-2">
+    Technostore360 (Angular Upgrade)
+  </h3>
+
+  <p class="mb-2">
+    <strong>Tools:</strong> <span>Angular, TypeScript</span>
+  </p>
+
+  <p class="text-sm leading-relaxed mb-3">
+    Migrated a production website from Angular v16 to v20, resolving compatibility
+    issues and improving UI performance.
+  </p>
+
+  <a
+    href="https://www.technostore360.com/home/category/email-collaboration/google-workspace/in/details"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+  >
+    View Live Page →
+  </a>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<section id="Certifications" class="py-20 bg-white dark:bg-gray-800 section">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-10">Certifications</h2>
+
+    <div class="space-y-6 text-left">
+
+      <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold mb-1">
+          Python Django Angular Full Stack Development
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          Technodot Academy · 2025
+        </p>
+        <p class="mt-2 text-sm">
+          Completed comprehensive full stack training covering Python, Django,
+          REST APIs, SQL/PostgreSQL, Angular, HTML, CSS, JavaScript, TypeScript and real-world project development.
+        </p>
+      </div>
+
+      <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold mb-1">
+          Plus Two
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          National Institute of Open Schooling (NIOS) · 2023
+        </p>
+        <p class="mt-2 text-sm">
+          Successfully completed Higher Secondary Education in the Arts stream under the
+          National Institute of Open Schooling (NIOS), with Data Entry & Office Automation
+          as a subject, developing a strong academic foundation in core subjects along with
+          practical computer skills.
+        </p>
+      </div>
+
+      <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold mb-1">
+          Secondary School Leaving Certificate (SSLC)
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          Kerala State Board of Examination · 2021
+        </p>
+        <p class="mt-2 text-sm">
+          Completed secondary education with a strong academic foundation.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="internship" class="py-20 section">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-6">Internship</h2>
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
+      <h3 class="text-xl font-semibold">Full Stack Developer Intern</h3>
+      <p class="mb-2"><strong>Company:</strong> Febno Technologies</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Worked on Angular and Django-based applications</li>
+        <li>Migrated modules from Angular v16 to v20</li>
+        <li>Improved UI components and backend features</li>
+        <li>Collaborated on debugging, testing, and deployment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="journey" class="py-20 section">
+  <h2 class="text-3xl font-bold text-center mb-10">My Journey</h2>
+  <div class="relative timeline max-w-3xl mx-auto px-4 space-y-8">
+    <div class="timeline-item relative pl-12">
+      <h3 class="font-semibold">2021 – SSLC</h3>
+      <p>Kerala State Board</p>
+    </div>
+    <div class="timeline-item relative pl-12">
+      <h3 class="font-semibold">2023 – Plus Two (NIOS)</h3>
+      <p>Data Entry & Office Automation</p>
+    </div>
+    <div class="timeline-item relative pl-12">
+      <h3 class="font-semibold">2024 – Bridgeon Solutions</h3>
+      <p>Web Development Fundamentals</p>
+    </div>
+    <div class="timeline-item relative pl-12">
+      <h3 class="font-semibold">2025 – Technodot Academy</h3>
+      <p>Python Django Angular Full Stack Development</p>
+    </div>
+    <div class="timeline-item relative pl-12">
+      <h3 class="font-semibold">2025 – Internship</h3>
+      <p>Full Stack Developer Intern at Febno Technologies</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-20 bg-white dark:bg-gray-800 section text-center">
+  <h2 class="text-3xl font-bold mb-6">Contact</h2>
+  <p class="mb-8 text-lg">Interested in working together? Get in touch!</p>
+  <a href="docs/Muhammed_Shibil_CV.pdf" download
+     class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">
+     Download Resume
+  </a>
+</section>
+
+<footer class="bg-gray-900 text-gray-400 text-center py-6">
+  <div class="flex justify-center space-x-6 mb-3">
+
+    <a
+      href="https://www.linkedin.com/in/muhammedshibilcv/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-gray-400 hover:text-blue-500 text-xl transition-colors"
+      aria-label="LinkedIn"
+    >
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a
+      href="https://github.com/muhammedshibilcv"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-gray-400 hover:text-white text-xl transition-colors"
+      aria-label="GitHub"
+    >
+      <i class="fab fa-github"></i>
+    </a>
+
+  </div>
+
+  <p class="text-sm">
+    © 2026 Muhammed Shibil
+  </p>
 </footer>
+
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById("themeToggle");
+
+  html.classList.toggle("dark");
+
+  if (html.classList.contains("dark")) {
+    btn.textContent = "☀️";
+  } else {
+    btn.textContent = "🌙";
+  }
+}
+
+// scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+</script>
+
 
 </body>
 </html>
